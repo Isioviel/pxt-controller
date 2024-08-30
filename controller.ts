@@ -21,7 +21,7 @@ namespace controller {
     /**
      * Gets contoller button pressed
      */
-    //% blockId=get_button block="get button pressed"
+    //% block="get button pressed"
     export function getButton() {
         press = pins.analogReadPin(AnalogPin.P2)
         if (press < 1000) {
@@ -46,7 +46,7 @@ namespace controller {
     /**
      * gets joystick y
      */
-    //% blockId=get_button block="get joystick Y"
+    //% block="get joystick Y"
     //% advanced=true
     export function getY() {
         return y = pins.analogReadPin(AnalogPin.P1)
@@ -55,7 +55,7 @@ namespace controller {
     /**
      * gets joystick x
      */
-    //% blockId=get_button block="get joystick X"
+    //% block="get joystick X"
     //% advanced=true
     export function getX() {
         return x = pins.analogReadPin(AnalogPin.P0)
@@ -64,7 +64,7 @@ namespace controller {
     /**
      * gets joystick values for controlling robots
      */
-    //% blockId=get_button block="convert joystick x and y into motor left and right"
+    //% block="convert joystick x and y into motor left and right"
     export function motorValues() {
         let stickX = getX() - 512
         let stickY = getY() - 512
