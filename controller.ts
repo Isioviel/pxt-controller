@@ -39,7 +39,7 @@ namespace controller {
                 button = 'A'
             }
             
-        }
+        } else button = '0'
         return button
     }
 
