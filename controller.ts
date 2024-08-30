@@ -62,9 +62,9 @@ namespace controller {
     }
 
     /**
-     * gets joystick values for controlling robots
+     * convert joystick x and y into motor left and right
      */
-    //% block="convert joystick x and y into motor left and right"
+    //% block="convert joystick"
     export function motorValues() {
         let stickX = getX() - 512
         let stickY = getY() - 512
