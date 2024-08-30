@@ -12,6 +12,11 @@ let Buttons = {
     '853': 'E',
     '819': 'F'
 };
+
+let x = 0
+let y = 0
+let motors = ""
+
 namespace controller {
     /**
      * Gets contoller button pressed
@@ -19,19 +24,52 @@ namespace controller {
     //% blockId=get_button block="get button pressed"
     export function getButton() {
         press = pins.analogReadPin(AnalogPin.P2)
-        if (press > 843) {
-            button = 'E'
-        } else if (press > 809) {
-            button = 'F'
-        } else if (press > 758) {
-            button = 'D'
-        } else if (press > 674) {
-            button = 'C'
-        } else if (press > 506) {
-            button = 'B'
-        } else if (press > - 8) {
-            button = 'A'
+        if (press < 1000) {
+            if (press > 843) {
+                button = 'E'
+            } else if (press > 809) {
+                button = 'F'
+            } else if (press > 758) {
+                button = 'D'
+            } else if (press > 674) {
+                button = 'C'
+            } else if (press > 506) {
+                button = 'B'
+            } else if (press > - 8) {
+                button = 'A'
+            }
+            
         }
         return button
+    }
+
+    /**
+     * gets joystick y
+     */
+    //% blockId=get_button block="get joystick Y"
+    //% advanced=true
+    export function getY() {
+        return y = pins.analogReadPin(AnalogPin.P1)
+    }
+
+    /**
+     * gets joystick x
+     */
+    //% blockId=get_button block="get joystick X"
+    //% advanced=true
+    export function getX() {
+        return x = pins.analogReadPin(AnalogPin.P0)
+    }
+
+    /**
+     * gets joystick values for controlling robots
+     */
+    //% blockId=get_button block="convert joystick x and y into motor left and right"
+    export function motorValues() {
+        let stickX = getX() - 512
+        let stickY = getY() - 512
+        let left = stickY + stickX
+        let right = stickY - stickX
+        return motors = left.toString() + " " + right.toString()
     }
 }
